@@ -1,3 +1,32 @@
+# News_Articles pipline 
+I have forked a airlow and used the dokerfile to create this pipline , 
+
+# 1. Extracting (Webscraping the data from the website https://www.spiegel.de/international/p2/ using python beautifulsoup4)
+I have extracted the Article information such as 
+1. Title 
+2. Sub_titile
+3. Abstract 
+and also input the ingetion data and time
+
+# 2. I have used Airflow to create the DAG pipeine, to schedule the python file to run every 15 mins 
+This will updated the newly addes records to the database and also do not append the duplicate data 
+
+#3. I have created postgres table to hold all these extracted infomation.
+
+The inbulif sqlalchemy to store the data.
+
+# below is information on how to run the project
+
+once you see the poject UI you should set the Porgress db setting in ADMIN tab under progress Default
+
+username: airflow
+password: airflow
+port: 5432
+
+
+# then click on DAG button start the job.
+
+
 # docker-airflow
 [![CI status](https://github.com/puckel/docker-airflow/workflows/CI/badge.svg?branch=master)](https://github.com/puckel/docker-airflow/actions?query=workflow%3ACI+branch%3Amaster+event%3Apush)
 [![Docker Build status](https://img.shields.io/docker/build/puckel/docker-airflow?style=plastic)](https://hub.docker.com/r/puckel/docker-airflow/tags?ordering=last_updated)
