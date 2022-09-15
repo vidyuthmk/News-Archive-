@@ -86,7 +86,7 @@ default_args = {
     # 'end_date': datetime(2016, 1, 1),
 }
 
-with DAG('news_articles_pipeline', default_args=default_args, schedule_interval='15 0 * * *', catchup=False) as dag:
+with DAG('news_articles_pipeline', default_args=default_args, schedule_interval='*/15 * * * *', catchup=False) as dag:
     create_table = PostgresOperator(
         task_id='create_table',
         sql='''
