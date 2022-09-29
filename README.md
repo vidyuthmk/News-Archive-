@@ -1,5 +1,5 @@
 # News_Articles pipline 
-I have forked a airlow and used the dokerfile to create this pipline , 
+I have forked an custom airflow docker file and used it for creating a data pipeline that extract transform and load the data into the potgres Database, 
 
 # 1. Extracting (Webscraping the data from the website https://www.spiegel.de/international/p2/ using python beautifulsoup4)
 I have extracted the Article information such as 
