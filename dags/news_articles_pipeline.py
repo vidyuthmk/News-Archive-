@@ -5,6 +5,9 @@ import pandas as pd
 from airflow.hooks.postgres_hook import PostgresHook
 from airflow.operators.python_operator import PythonOperator
 from airflow.operators.postgres_operator import PostgresOperator
+from airflow.providers.google.cloud.operators.gcs import GCSDeleteObjectsOperator
+from airflow.providers.google.cloud.transfers.gcs_to_bigquery import GCSToBigQueryOperator
+from airflow.providers.google.cloud.transfers.postgres_to_gcs import PostgresToGCSOperator
 from datetime import datetime, timedelta, timezone
 from bs4 import BeautifulSoup
 from airflow import DAG
@@ -129,6 +132,7 @@ with DAG('news_articles_pipeline', default_args=default_args, schedule_interval=
         python_callable=_store_articles_to_database
 
     )
+
 
 # Task lineage (dependencies)
 create_table >> extract_articles >> store_articles
